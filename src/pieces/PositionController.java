@@ -46,4 +46,12 @@ public class PositionController {
 		}
 		return positions;
 	}
+
+	public List<Position> findPositions(Direction[] directions) {
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : directions) {
+			positions.add(position.move(direction));
+		}
+		return positions;
+	}
 }

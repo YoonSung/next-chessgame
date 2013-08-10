@@ -33,4 +33,13 @@ public enum Direction {
 	public static Direction[] diagonalDirection() {
 		return new Direction[] { NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
 	}
+
+	
+	public static Direction[] blackPawnDirection() {
+		return new Direction[] {SOUTH};
+	}
+
+	public static Direction[] whitePawnDirection() {
+		return new Direction[] {NORTH};
+	}
 }
