@@ -39,8 +39,8 @@ public class Position {
 	Position move(Direction direction) {
 		return new Position(this.x + direction.getXDegree(), this.y + direction.getYDegree());
 	}
-
-	List<Position> findsPosition(Direction direction) {
+	//change method name, The previous name is "findPosition"
+	List<Position> findsAllPosition(Direction direction) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(direction);
 		while(currentPosition.isValid()) {
@@ -91,7 +91,4 @@ public class Position {
 	public String toString() {
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
-
-
-
 }

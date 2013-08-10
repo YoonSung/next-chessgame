@@ -14,7 +14,7 @@ public class PositionController {
 		Direction[] linears = Direction.linearDirection();
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : linears) {
-			positions.addAll(position.findsPosition(direction));
+			positions.addAll(position.findsAllPosition(direction));
 		}
 		return positions;
 	}
@@ -23,7 +23,26 @@ public class PositionController {
 		Direction[] diagonals = Direction.diagonalDirection();
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : diagonals) {
-			positions.addAll(position.findsPosition(direction));
+			positions.addAll(position.findsAllPosition(direction));
+		}
+		return positions;
+	}
+	
+	public List<Position> findsLinearPosition() {
+		Direction[] linears = Direction.linearDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : linears) {
+			positions.add(position.move(direction));
+		}
+		return positions;
+	}
+
+	
+	public List<Position> findsDiagonalPosition() {
+		Direction[] linears = Direction.diagonalDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : linears) {
+			positions.add(position.move(direction));
 		}
 		return positions;
 	}
