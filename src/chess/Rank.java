@@ -8,9 +8,8 @@ import pieces.Empty;
 import pieces.King;
 import pieces.Knight;
 import pieces.Pawn;
-import pieces.Piece;
-import pieces.PieceOperations;
 import pieces.Piece.Color;
+import pieces.PieceOperations;
 import pieces.Position;
 import pieces.Queen;
 import pieces.Rook;
@@ -24,7 +23,7 @@ public class Rank {
 		this.rankPosition = yPosition;
 	}
 
-	void initializeEmpty() {
+	public void initializeEmpty() {
 		for (int i = 0; i < Board.COLUMN_SIZE; i++) {
 			rank.add( new Empty(Color.NOCOLOR, new Position(i, rankPosition)) );
 		}
@@ -77,7 +76,7 @@ public class Rank {
 		return rank.get(position.getX());
 	}
 
-	void changePiece(int xPosition, Piece targetPiece) {
+	void changePiece(int xPosition, PieceOperations targetPiece) {
 		rank.set(xPosition, targetPiece);
 	}
 

@@ -36,11 +36,13 @@ public abstract class Piece implements PieceOperations{
 		this.type = type;
 		this.position = position;
 	}
-
+	
+	@Override
 	public char getSymbol() {
 		return this.color == Color.BLACK ? Character.toUpperCase(type.getSymbol()) : type.getSymbol();  
 	}
 	
+	@Override
 	public Color getColor() {
 		return color;
 	}
@@ -53,14 +55,17 @@ public abstract class Piece implements PieceOperations{
     	return this.color == Color.BLACK ? true : false;
     }
     
+    @Override
 	public boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
 
+    @Override
 	public Piece leave() {
 		return new Empty(Color.NOCOLOR, this.position);
 	}
 	
+    @Override
 	public Piece move(Position target) {
 		this.position = target;
 		return this;

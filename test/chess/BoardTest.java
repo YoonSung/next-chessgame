@@ -24,7 +24,7 @@ public class BoardTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		board = new Board();
+		board = Board.getInstance();
 	}
 	
 	public void testCreate() throws Exception {

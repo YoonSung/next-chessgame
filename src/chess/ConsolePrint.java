@@ -6,7 +6,6 @@ public class ConsolePrint implements Showable {
 
 	List<Rank> ranks;
 	
-	
 	public ConsolePrint(List<Rank> ranks){
 		this.ranks = ranks;
 	}
