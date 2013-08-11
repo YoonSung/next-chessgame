@@ -74,4 +74,17 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testMoveEmptyPiece() throws Exception {
+		board.initialize();
+		Position a3 = new Position("a3");
+		Position a2 = new Position("a2");
+		
+		Empty empty = new Empty(Color.NOCOLOR, a3);
+		
+		board.movePiece(a3, a2);
+		assertEquals(empty, board.findPiece("a3"));
+		assertEquals(new Pawn(Color.WHITE, a2), board.findPiece("a2"));
+		System.out.println(board.generateBoard());
+	}
 }

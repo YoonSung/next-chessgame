@@ -41,26 +41,15 @@ public abstract class Piece {
 	}
 	
 	public char getSymbol() {
-		if (isBlack()) {
-			return Character.toUpperCase(type.getSymbol());
-		}
-		return type.getSymbol();
+		return this.color == Color.BLACK ? Character.toUpperCase(type.getSymbol()) : type.getSymbol();  
 	}
 	
     boolean isWhite() {
-        if (Color.WHITE == color) {
-            return true;
-        }
-        
-        return false;
+    	return this.color == Color.WHITE ? true : false;
     }
 
     boolean isBlack() {
-        if (Color.BLACK == color) {
-            return true;
-        }
-        
-        return false;
+    	return this.color == Color.BLACK ? true : false;
     }
     
 	boolean matchColor(Color color) {
