@@ -12,8 +12,13 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController posControl = new PositionController(position);
 		return posControl.findPosition(Direction.KnightDirection());
+	}
+
+	@Override
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }

@@ -13,10 +13,15 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController posControl = new PositionController(position);
 		if(this.isBlack())
 			return posControl.findBlackPawnPositions();
 		return posControl.findWhtePawnPositions();
+	}
+
+	@Override
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }

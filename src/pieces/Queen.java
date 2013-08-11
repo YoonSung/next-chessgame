@@ -14,11 +14,16 @@ public class Queen extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		ArrayList<Position> moves = new ArrayList<Position>();
 		PositionController posControl = new PositionController(position);
 		moves.addAll(posControl.findsDiagonalPositionAll());
 		moves.addAll(posControl.findsLinearPositionAll());
 		return moves;
+	}
+
+	@Override
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }

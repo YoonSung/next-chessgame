@@ -12,9 +12,14 @@ public class King extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController posControl = new PositionController(position);
 		return posControl.findPosition(Direction.kingDirection());
+	}
+
+	@Override
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }
 

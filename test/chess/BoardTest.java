@@ -108,4 +108,46 @@ public class BoardTest extends TestCase {
 		assertEquals(new Rook(Color.WHITE, a1), board.findPiece("a1"));
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testMoveImpossibleMovesPosition() throws Exception {
+		
+		//		  ChessBoard
+		//
+		//	a8 b8 c8 d8 e8 f8 g8 h8
+		//	a7 b7 c7 d7 e7 f7 g7 h7
+		//	a6 b6 c6 d6 e6 f6 g6 h6
+		//	a5 b5 c5 d5 e5 f5 g5 h5
+		//	a4 b4 c4 d4 e4 f4 g4 h4
+		//	a3 b3 c3 d3 e3 f3 g3 h3
+		//	a2 b2 c2 d2 e2 f2 g2 h2
+		//	a1 b1 c1 d1 e1 f1 g1 h1
+		
+		board.initialize();
+		
+		Position e5 = new Position("e5");
+		Position e6 = new Position("e6");
+		Position d5 = new Position("d5");
+		Position d6 = new Position("d6");
+		
+		board.movePiece("a2", "a4");
+		board.movePiece("a1", "a3");
+		board.movePiece("a3", "e3");
+		board.movePiece("e3", "e5");
+		System.out.println(board.generateBoard());
+		
+		board.movePiece(e5, e6);
+		assertEquals(new Rook(Color.WHITE, e6), board.findPiece(e6));
+		
+		board.movePiece(e6, d6);
+		assertEquals(new Rook(Color.WHITE, d6), board.findPiece(d6));
+		
+		board.movePiece(d6, d5);
+		assertEquals(new Rook(Color.WHITE, d5), board.findPiece(d5));
+		
+		Position impossibleTogo = new Position("c4");
+		board.movePiece(d5, impossibleTogo);
+		assertEquals(new Empty(Color.NOCOLOR, impossibleTogo), board.findPiece(impossibleTogo));
+		
+		assertEquals(new Rook(Color.WHITE, d5), board.findPiece(d5));
+	}
 }

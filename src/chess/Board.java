@@ -67,7 +67,15 @@ public class Board {
 		
 		if (findPiece(target).matchColor(findPiece(source).getColor()))
 			return;
+
+		List<Position> possibleTogo = findPiece(source).getPossibleMoves();
 		
+		if(!possibleTogo.contains(target)){
+			System.out.println(possibleTogo);
+			return;
+		}
+				
+				
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
@@ -76,6 +84,8 @@ public class Board {
 		
 		Rank targetRank = ranks.get(target.getY());
 		targetRank.move(targetPiece, target);
+		
+		targetPiece.setPosition(target);
 	}
 	
 	String generateRank(int rankIndex) {
