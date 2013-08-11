@@ -44,6 +44,10 @@ public abstract class Piece {
 		return this.color == Color.BLACK ? Character.toUpperCase(type.getSymbol()) : type.getSymbol();  
 	}
 	
+	public Color getColor() {
+		return color;
+	}
+	
     boolean isWhite() {
     	return this.color == Color.WHITE ? true : false;
     }
@@ -52,7 +56,7 @@ public abstract class Piece {
     	return this.color == Color.BLACK ? true : false;
     }
     
-	boolean matchColor(Color color) {
+	public boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
 

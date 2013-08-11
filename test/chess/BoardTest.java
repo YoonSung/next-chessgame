@@ -6,6 +6,7 @@ import pieces.Pawn;
 import pieces.Piece;
 import pieces.Piece.Color;
 import pieces.Position;
+import pieces.Rook;
 
 //		  ChessBoard
 //
@@ -96,5 +97,15 @@ public class BoardTest extends TestCase {
 		board.movePiece(a2, invalidPosition);
 		assertEquals(new Pawn(Color.WHITE, a2), board.findPiece("a2"));
 		System.out.println(board.generateBoard());		
+	}
+	
+	public void testMoveFriendsForcePosition() throws Exception {
+		board.initialize();
+		Position freindPosition = new Position(0, 1);
+		Position a1 = new Position("a1");
+		
+		board.movePiece(a1, freindPosition);
+		assertEquals(new Rook(Color.WHITE, a1), board.findPiece("a1"));
+		System.out.println(board.generateBoard());
 	}
 }
