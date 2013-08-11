@@ -27,10 +27,10 @@ public class PositionTest extends TestCase {
 		int startX = 4;
 		int startY = 5;
 		Position source = new Position(startX, startY);
-		assertEquals(new Position(startX + 1, startY + 1), source.move(Direction.NORTHEAST));
-		assertEquals(new Position(startX - 1, startY + 1), source.move(Direction.NORTHWEST));
-		assertEquals(new Position(startX + 1, startY - 1), source.move(Direction.SOUTHEAST));
-		assertEquals(new Position(startX - 1, startY - 1), source.move(Direction.SOUTHWEST));
+		assertEquals(new Position(startX + 1, startY + 1), source.move(Direction.NORTH_EAST));
+		assertEquals(new Position(startX - 1, startY + 1), source.move(Direction.NORTH_WEST));
+		assertEquals(new Position(startX + 1, startY - 1), source.move(Direction.SOUTH_EAST));
+		assertEquals(new Position(startX - 1, startY - 1), source.move(Direction.SOUTH_WEST));
 	}
 
 	public void testFindsLinearPosition() throws Exception {
@@ -45,10 +45,10 @@ public class PositionTest extends TestCase {
 		int startX = 4;
 		int startY = 5;
 		Position position = new Position(startX, startY);
-		verifyPositions(position, Direction.NORTHEAST, 2);
-		verifyPositions(position, Direction.NORTHWEST, 2);
-		verifyPositions(position, Direction.SOUTHEAST, 3);
-		verifyPositions(position, Direction.SOUTHWEST, 4);
+		verifyPositions(position, Direction.NORTH_EAST, 2);
+		verifyPositions(position, Direction.NORTH_WEST, 2);
+		verifyPositions(position, Direction.SOUTH_EAST, 3);
+		verifyPositions(position, Direction.SOUTH_WEST, 4);
 	}
 
 	private void verifyPositions(Position position, Direction direction, int expectedSize) {

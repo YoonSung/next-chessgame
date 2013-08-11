@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PositionController {
-	private Position position;;
+	private Position position;
 
 	public PositionController(Position position) {
 		this.position = position;
@@ -27,30 +27,13 @@ public class PositionController {
 		}
 		return positions;
 	}
-	
-	public List<Position> findsLinearPosition() {
-		Direction[] linears = Direction.linearDirection();
-		List<Position> positions = new ArrayList<Position>();
-		for (Direction direction : linears) {
-			positions.add(position.move(direction));
-		}
-		return positions;
-	}
 
-	
-	public List<Position> findsDiagonalPosition() {
-		Direction[] linears = Direction.diagonalDirection();
-		List<Position> positions = new ArrayList<Position>();
-		for (Direction direction : linears) {
-			positions.add(position.move(direction));
-		}
-		return positions;
-	}
-
-	public List<Position> findPositions(Direction[] directions) {
+	public List<Position> findPosition(Direction[] directions) {
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : directions) {
-			positions.add(position.move(direction));
+			Position possibleTogo = position.move(direction);
+			if(possibleTogo.isValid())
+				positions.add(position.move(direction));
 		}
 		return positions;
 	}

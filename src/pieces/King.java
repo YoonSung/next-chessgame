@@ -1,6 +1,5 @@
 package pieces;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class King extends Piece {
@@ -15,11 +14,7 @@ public class King extends Piece {
 	@Override
 	List<Position> getPossibleMoves() {
 		PositionController posControl = new PositionController(position);
-		ArrayList<Position> moves = new ArrayList<Position>();
-		moves.addAll(posControl.findsLinearPosition());
-		moves.addAll(posControl.findsDiagonalPosition());
-		
-		return moves;
+		return posControl.findPosition(Direction.kingDirection());
 	}
 }
 
