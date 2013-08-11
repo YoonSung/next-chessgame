@@ -3,7 +3,6 @@ package chess;
 import junit.framework.TestCase;
 import pieces.King;
 import pieces.Pawn;
-import pieces.Piece;
 import pieces.Piece.Color;
 import pieces.PieceOperations;
 import pieces.Position;

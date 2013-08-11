@@ -87,18 +87,11 @@ public class Board {
 		targetPiece.setPosition(target);
 	}
 	
-	String generateRank(int rankIndex) {
-		Rank rank = ranks.get(rankIndex);
-		StringBuilder sb = new StringBuilder();
-		sb.append(rank.generate());
-		return sb.toString();
+	void generateBoardInConsole() {
+		new ConsolePrint(ranks).generateBoard();
 	}
-
-	String generateBoard() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(generateRank(i-1) + NEW_LINE);
-		}
-		return sb.toString();
+	
+	void generateBoardInHtml() {
+		new HtmlPrint(ranks).generateBoard();
 	}
 }
