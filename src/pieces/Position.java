@@ -7,7 +7,6 @@ import chess.Board;
 
 public class Position {
 	private static final char COLUMN_START_CHAR = 'a';
-
 	private int x;
 	private int y;
 

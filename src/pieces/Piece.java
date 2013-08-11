@@ -1,9 +1,6 @@
 package pieces;
 
-import java.util.List;
-
-
-public abstract class Piece {
+public abstract class Piece implements PieceOperations{
 	public enum Color {
 		WHITE,
 		BLACK,
@@ -39,7 +36,7 @@ public abstract class Piece {
 		this.type = type;
 		this.position = position;
 	}
-	
+
 	public char getSymbol() {
 		return this.color == Color.BLACK ? Character.toUpperCase(type.getSymbol()) : type.getSymbol();  
 	}
@@ -48,11 +45,11 @@ public abstract class Piece {
 		return color;
 	}
 	
-    boolean isWhite() {
+    protected boolean isWhite() {
     	return this.color == Color.WHITE ? true : false;
     }
 
-    boolean isBlack() {
+    protected boolean isBlack() {
     	return this.color == Color.BLACK ? true : false;
     }
     
@@ -68,9 +65,6 @@ public abstract class Piece {
 		this.position = target;
 		return this;
 	}
-	
-	public abstract void setPosition(Position position);
-	public abstract List<Position> getPossibleMoves();
 	
 	@Override
 	public int hashCode() {
