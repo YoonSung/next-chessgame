@@ -54,4 +54,32 @@ public class PositionController {
 		}
 		return positions;
 	}
+	
+	public List<Position> findWhtePawnPositions() {
+		Direction[] directions;
+		if (position.getY() == 1)
+			directions = Direction.whitePawnStartDirection();
+		else
+			directions = Direction.whitePawnDirection();
+			
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : directions) {
+			positions.add(position.move(direction));
+		}
+		return positions;
+	}
+
+	public List<Position> findBlackPawnPositions() {
+		Direction[] directions;
+		if (position.getY() == 6)
+			directions = Direction.blackPawnStartDirection();
+		else
+			directions = Direction.blackPawnDirection();
+			
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : directions) {
+			positions.add(position.move(direction));
+		}
+		return positions;
+	}
 }

@@ -17,9 +17,9 @@ public class Pawn extends Piece {
 	@Override
 	List<Position> getPossibleMoves() {
 		PositionController posControl = new PositionController(position);
-		
 		if(color == Color.BLACK)
-			return posControl.findPositions(Direction.blackPawnDirection());
-		return posControl.findPositions(Direction.whitePawnDirection());
+			return posControl.findBlackPawnPositions();
+		
+		return posControl.findWhtePawnPositions();
 	}
 }

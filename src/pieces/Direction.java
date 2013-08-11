@@ -8,8 +8,11 @@ public enum Direction {
 	SOUTH(0, -1),
 	SOUTHWEST(-1, -1),
 	WEST(-1, 0),
-	NORTHWEST(-1, 1);
-
+	NORTHWEST(-1, 1),
+	
+	SOUTHSOUTH(0, -2),
+	NORTHNORTH(0, 2);
+	
 	private int xDegree;
 	private int yDegree;
 
@@ -35,11 +38,19 @@ public enum Direction {
 	}
 
 	
-	public static Direction[] blackPawnDirection() {
-		return new Direction[] {SOUTH};
+	public static Direction[] blackPawnStartDirection() {
+		return new Direction[] {SOUTH, SOUTHSOUTH};
+	}
+
+	public static Direction[] whitePawnStartDirection() {
+		return new Direction[] {NORTH, NORTHNORTH};
 	}
 
 	public static Direction[] whitePawnDirection() {
 		return new Direction[] {NORTH};
+	}
+
+	public static Direction[] blackPawnDirection() {
+		return new Direction[] {SOUTH};
 	}
 }
